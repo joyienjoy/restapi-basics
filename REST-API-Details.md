@@ -48,4 +48,50 @@ II. HTTP POST METHOD
         1. 200 - OK
         2. 204 - NO DATA TO POST
 
-III. 
+III. HTTP PUT METHOD
+     Use PUT APIs primarily to update an existing resource
+     The payload contains all the attributes and its values.
+     If resource does not exist, then API may decide to create a new resource
+     If the request passes through a cache and the Request-URI identifies one or more currently cached entities, those entries SHOULD be treated as stale.
+     Responses to PUT method are not cacheable.
+     
+     Possible Response Codes:
+     201 - CREATED
+     200 - OK (if data is modified)
+     204 - NO PAYLOAD ADDED
+
+POST VS. PUT
+    POST requests are made on resource collections: http://www.application.com/users/
+    PUT requests are made on a single resource: http://www.application.com/users/2
+
+IV. HTTP DELETE METHOD
+    It deletes the resources, as identified by the Request-URI
+    DELETE operations are idempotent. If you DELETE a resource, it’s removed from the collection of resources.
+    If the request passes through a cache and the Request-URI identifies one or more currently cached entities, those entries SHOULD be treated as stale.
+    Responses to this method are not cacheable.
+    
+    Possible Response Code:
+    200 - OK (Item deleted)
+    202 - ACCEPTED (Action Queued)
+    204 - NO CONTENT (uri missing the data identifier)
+    404 - NOT FOUND (data already deleted)
+    
+    IMP: DELETE is normally used for Items in resources, but can delete the whole Collection if URI points to the collection only.
+    
+V. HTTP PATCH METHOD
+    Performs partial update on a resource.
+    The payload contains only the attribute that must be changed.
+    
+
+PUT VS PATCH:
+If you see PUT requests modify a resource entity too. So to make it more precise – the PATCH method is the correct choice for partially updating an existing resource, and you should only use PUT if you’re replacing a resource in its entirety.
+
+PREFERABLY AVOID PATCH:
+    Please note that there are some challenges if you decide to use PATCH APIs in your application:
+    Support for PATCH in browsers, servers, and web application frameworks is not universal. 
+    IE8, PHP, Tomcat, Django, and lots of other software have missing or broken support for it.
+    Request payload of a PATCH request is not straightforward as it is for a PUT request
+
+METHODS Applicable FOR Resource collections:  http://www.application.com/users  : GET / POST
+
+METHODS Applicable FOR Resource members (individual IDs):  http://www.application.com/users/2    : PUT / PATCH / DELETE
