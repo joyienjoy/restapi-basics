@@ -2,11 +2,12 @@ REST (REpresentational State Transfer)
 
 API  (Application Programmable Interface)
 
-
+-------------------------------------------------------------------------------------------------------------------------
 USES:
 
 When designing web applications, APIs are used to incorporate data from different sources into our apps. 
 
+---------------------------------------------------------------------------------------------------------------------------
 
 What is REST
 
@@ -22,6 +23,7 @@ REST uses JSON on top of HTTP(in most cases) to achieve this.
 
 Resource Representation = Data + Metadata + Hypermedia Links --- Hypermedia is the engine of REST Architecture.
 
+-------------------------------------------------------------------------------------------------------------------------------
 
 REST IS STATELESS
 
@@ -43,6 +45,8 @@ The resource representation is transferred from client to server, where the serv
 
 It can just store the current state of the resource representation.
 
+
+-------------------------------------------------------------------------------------------------------------------------------------
 SUMMERY:
 
 In REST architectural style, data and functionality are considered resources and are accessed using Uniform Resource Identifiers (URIs). 
